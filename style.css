@@ -43,3 +43,31 @@ form {
     font-size: 12px;
     color: #666;
 }
+
+.message {
+    /* Should be a centered text bubble */
+    margin-top: 20px;
+    font-size: 16px;
+    color: #666;
+    background-color: #f4f4f4;
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+    /* round it */
+    border-radius: 10px;
+    margin: 0 auto;
+    max-width: 510px;
+}
+
+.thank-you {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #666;
+    display: none;
+}
+.processing {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #666;
+    display: none;
+}

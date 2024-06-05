@@ -3,99 +3,105 @@
 <head>
     <title>Atlas Consulting Services - New Contractor Form</title>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="insert.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="db-client.js"></script>
 </head>
 <body>
-    <img src="images/Atlas Logo Sticker Compressed.png" alt="Atlas Logo">
+    <a href="https://www.atlasenergyconsulting.com/"><img src="images/Atlas Logo Sticker Compressed.png" alt="Atlas Logo"></a>
     <div class="header">
         <h2>New Contractor Form</h2>
     </div>
-    <form method="dialog" action="new_contractor.php">
+    <form id="form">
         <h1>Contact Information</h1>
         <div class="input-group-group">
             <div class="input-group">
                 <label>First Name</label>
-                <input type="text" name="first_name" required>
+                <input type="text" name="first_name" id="first_name" required>
             </div>
             <div class="input-group">
                 <label>Last Name</label>
-                <input type="text" name="last_name" required>
+                <input type="text" name="last_name" id="last_name" required>
             </div>
             <div class="input-group">
                 <label>Contact Phone</label>
-                <input type="tel" name="contact_phone" required>
+                <input type="tel" name="contact_phone" id="contact_phone" required>
             </div>
         </div>
         <div class="input-group">
             <label>Contact Email</label>
-            <input type="email" name="contact_email" required>
+            <input type="email" name="contact_email" id="contact_email" required>
         </div>
         <h1>Company Information</h1>
         <div class="input-group-group">
             <div class="input-group">
                 <label>Company Name</label>
-                <input type="text" name="company_name" required>
+                <input type="text" name="company_name" id="company_name" required>
             </div>
             <div class="input-group">
                 <label>Warranty</label>
-                <input type="text" name="warranty" required>
+                <input type="text" name="warranty" id="warranty" required>
             </div>
         </div>
         <div class="input-group-group" style="margin-top: 20px">
             <div class="input-group">
                 <label>Company Street</label>
-                <input type="text" name="company_street_address" required>
+                <input type="text" name="company_street" id="company_street" required>
             </div>
             <div class="input-group">
                 <label>Company City</label>
-                <input type="text" name="company_city" required>
+                <input type="text" name="company_city" id="company_city" required>
             </div>
             <div class="input-group">
                 <label>Company State</label>
-                <input type="text" name="company_state" required>
+                <input type="text" name="company_state" id="company_state" required>
             </div>
             <div class="input-group">
                 <label>Company Zip</label>
-                <input type="text" name="company_zip" required>
+                <input type="text" name="company_zip" id="company_zip" required>
             </div>
         </div>
         <div class="input-group-group">
             <div class="input-group">
                 <label>Project Role</label>
-                <input type="text" name="project_role" required>
+                <input type="text" name="project_role" id="project_role" required>
             </div>
             <div class="input-group">
                 <label>Your Title</label>
-                <input type="text" name="your_title" required>
+                <input type="text" name="your_title" id="your_title" required>
             </div>
         </div>
         <div class="input-group-group">
             <div class="input-group">
                 <label>Number Performed on a Similar System</label>
-                <input type="number" name="number_performed_on_a_similar_system" required>
+                <input type="number" name="number_performed_on_a_similar_system" id="number_performed_on_a_similar_system" required>
             </div>
             <div class="input-group">
                 <label>Years of Relevant Experience</label>
-                <input type="number" name="years_of_relevant_experience" required>
+                <input type="number" name="years_of_relevant_experience" id="years_of_relevant_experience" required>
             </div>
             </div>
         <div class="input-group">
             <label>Professional Credentials</label>
-            <input type="text" name="professional_credentials" required>
+            <input type="text" name="professional_credentials" id="professional_credentials" required>
         </div>
         <div class="input-group">
             <label>Licenses</label>
-            <input type="text" name="licenses" required>
+            <input type="text" name="licenses" id="licenses" required>
         </div>
         <hr>
         <div class="input-group">
-            <button type="submit" class="btn" name="new_contractor" onclick="insert()">Submit</button>
+            <button type="button" class="btn" name="new_contractor" id="new_contractor" onclick="insert()">Submit</button>
         </div>
         <p class="disclaimer">
             Disclaimer: Your information is private and secure. We will not share your information with any third parties apart from the USDA to complete the REAP grant application. Data is saved to a secure and private database hosted by Supabase. For questions, please contact: Lacey McKinnon at Atlas Consulting
             <a href="mailto:lmckinnon@atlasenergyconsulting.com">lmckinnon@atlasenergyconsulting.com</a> <a href="tel:5304133730">(530) 413-3730</a>
         </p>
-
     </form>
+    <div class="processing message" id="processing">
+        <p id="message">Processing request...</p>
+    </div>
+    <div class="thank-you message" id="thank-you">
+        <p id="message">Thank you for your submission!<br>You may now close this page.</p>
+    </div>
 </body>
 </html>
